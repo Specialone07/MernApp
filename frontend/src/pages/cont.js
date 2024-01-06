@@ -9,7 +9,7 @@ const ContactUs = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://mern-app-backend-zeta.vercel.app/ContactUs', {
+      const response = await fetch('http://localhost:3001/ContactUs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,13 +47,13 @@ const ContactUs = () => {
             Your Name
           </label>
           <textarea
-              id="message"
-              name="message"
-              rows="4"
+              type="text"
+              id="name"
+              name="name"
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
               placeholder="Enter your message"
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
             />
         </div>
         <div className="mb-4">
@@ -76,7 +76,7 @@ const ContactUs = () => {
             Your Message
           </label>
           <input
-            type="text-area"
+          
             id="message"
             name="message"
             rows="4"
