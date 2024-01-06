@@ -41,7 +41,7 @@ app.use(cors({
 
 
 //routes 
-app.post('/register', async (req, res) => {
+app.post('/signup', async (req, res) => {
     try {
         const { email, username, password } = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
