@@ -74,21 +74,20 @@ const ContactUs = () => {
           />
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-gray-600 text-sm font-medium mb-2">
-            Your Message
-          </label>
- <input
-              type="text"
-              id="name"
-              name="name"
-              rows="4"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-              placeholder="Enter your message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            />
-        </div>
+       <div className="mb-4">
+  <label htmlFor="name" className="block text-gray-600 text-sm font-medium mb-2">
+    Your Message
+  </label>
+  <textarea
+    id="message"
+    name="message"
+    rows="4"
+    className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+    placeholder="Enter your message"
+    value={message}
+    onChange={(e) => setMessage(e.target.value)}
+  />
+</div>
 
         <button
           type="submit"
