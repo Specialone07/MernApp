@@ -47,7 +47,7 @@ const ContactUs = () => {
             Your Name
           </label>
           <textarea
-              type="text"
+              
               id="name"
               name="name"
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
@@ -76,7 +76,7 @@ const ContactUs = () => {
             Your Message
           </label>
           <input
-          
+          type="text"
             id="message"
             name="message"
             rows="4"
