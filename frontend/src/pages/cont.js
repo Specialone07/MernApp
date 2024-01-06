@@ -9,7 +9,7 @@ const ContactUs = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/ContactUs', {
+      const response = await fetch('https://mern-app-backend-zeta.vercel.app/ContactUs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
