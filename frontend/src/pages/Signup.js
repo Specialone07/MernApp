@@ -26,20 +26,18 @@ const Signup = () => {
     }
     const handleRegister=(event)=>{
         event.preventDefault()
-        axios
-        .post('https://mern-app-backend-zeta.vercel.app/register',{email, username, password})
-        .then(()=>{
-            alert('Registration Succesful')
-            setEmail('')
-            setUsername('')
-            setPassword('')
-            fetchUsers()
-            navigate('/login')
-        })
-        .catch((err)=>{
-            alert("Error with Registration")
-        })
-    }
+     axios.post('https://mern-app-backend-zeta.vercel.app/register', { email, username, password })
+   .then(() => {
+      alert('Registration Successful');
+      setEmail('');
+      setUsername('');
+      setPassword('');
+      fetchUsers();
+      navigate('/login');
+   })
+   .catch((err) => {
+      alert('Error with Registration');
+   });
 
   return (
     <div className="flex justify-center items-center h-screen">
