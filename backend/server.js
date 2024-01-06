@@ -19,7 +19,12 @@ const app =express();
 const DB_URI='mongodb+srv://bibekpuri34:QwxvJv50XaxHYcPl@cluster30.sva5gvn.mongodb.net/UserDB?retryWrites=true&w=majority'
 
 
-mongoose.connect(DB_URI);
+mongoose.connect(DB_URI)  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error.message);
+  });
 
 
 //middleware
