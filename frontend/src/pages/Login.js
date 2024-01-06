@@ -15,7 +15,7 @@ const Login=() =>{
 
     const fetchUsers = () => {
         axios
-        .get('https://mern-app-backend-zeta.vercel.app/register')
+        .get('http://localhost:3001/register')
         .then((res) => {
             console.log(res.data)
         })
@@ -26,7 +26,7 @@ const Login=() =>{
         event.preventDefault();
         try {
             const response = await axios
-            .post('https://mern-app-backend-zeta.vercel.app/login', { username, password })
+            .post('http://localhost:3001/login', { username, password })
             const token = response.data.token
             alert('Login successful')
             setUsername('')
