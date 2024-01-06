@@ -54,6 +54,9 @@ app.use(cors({
 
 
 //routes 
+app.get('/',(req,res)=>{
+  res.json("hello");
+});
 app.post('/register', async (req, res) => {
     try {
         const { email, username, password } = req.body;
