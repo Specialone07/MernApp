@@ -46,15 +46,18 @@ const ContactUs = () => {
           <label htmlFor="name" className="block text-gray-600 text-sm font-medium mb-2">
             Your Name
           </label>
+<label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">
+            Your Email
+          </label>
           <input
-              type="text"
-              id="name"
-              name="name"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-              placeholder="Enter your name"
-              value={message}
-              onChange={(e) => setName(e.target.value)}
-            />
+            type="text"
+            id="name"
+            name="name"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            placeholder="Enter your mail"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">
@@ -75,18 +78,16 @@ const ContactUs = () => {
           <label htmlFor="message" className="block text-gray-600 text-sm font-medium mb-2">
             Your Message
           </label>
-          <input
-          type="text"
-            id="message"
-            name="message"
-            
-           
-            
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-            placeholder="Enter your message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
+ <input
+              type="text"
+              id="name"
+              name="name"
+              rows="4"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+              placeholder="Enter your message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
         </div>
 
         <button
