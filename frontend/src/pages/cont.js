@@ -40,10 +40,9 @@ const ContactUs = () => {
 
   return (
     <div className="container mx-auto mt-8 p-8">
-      <h2 className="text-4xl font-bold text-center">Contact Us</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-              <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-600 text-sm font-medium mb-2">
             Your Name
           </label>
           <input
