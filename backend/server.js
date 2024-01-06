@@ -28,15 +28,14 @@ mongoose.connect(DB_URI)  .then(() => {
 
 
 //middleware
-app.use(bodyParser.json())
 
+app.use(bodyParser.json())
 
 app.use(cors({
   origin:["https://mern-app-backend-zeta.vercel.app"],
-  methods:["POST",'GET'],
+  methods:["POST",'GET', 'OPTIONS'],
   credentials:true
 }));
-
 
 
 
