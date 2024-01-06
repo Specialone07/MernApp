@@ -46,9 +46,6 @@ const ContactUs = () => {
           <label htmlFor="name" className="block text-gray-600 text-sm font-medium mb-2">
             Your Name
           </label>
-<label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">
-            Your Email
-          </label>
           <input
             type="text"
             id="name"
