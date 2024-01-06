@@ -46,8 +46,8 @@ const ContactUs = () => {
           <label htmlFor="name" className="block text-gray-600 text-sm font-medium mb-2">
             Your Name
           </label>
-          <textarea
-              
+          <input
+              type="text"
               id="name"
               name="name"
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
