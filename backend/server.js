@@ -31,6 +31,10 @@ mongoose.connect(DB_URI)  .then(() => {
 
 app.use(bodyParser.json())
 
+res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
+  res.header("Access-Control-Allow-Headers", "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version");
 
 app.use(cors({
   origin:["https://mern-app-backend-zeta.vercel.app"],
