@@ -24,21 +24,22 @@ const Signup = () => {
         })
 
     }
-    const handleRegister=(event)=>{
-        event.preventDefault()
-     axios.post('https://mern-app-backend-zeta.vercel.app/register', { email, username, password })
-   .then(() => {
+   const handleRegister = (event) => {
+  event.preventDefault();
+
+  axios.post('https://mern-app-backend-zeta.vercel.app/register', { email, username, password })
+    .then(() => {
       alert('Registration Successful');
       setEmail('');
       setUsername('');
       setPassword('');
       fetchUsers();
       navigate('/login');
-   })
-   .catch((err) => {
+    })
+    .catch((err) => {
       alert('Error with Registration');
-   });
-
+    });
+};
   return (
     <div className="flex justify-center items-center h-screen">
       <form className="bg-white-200 shadow-md rounded px-8 pt-6 pb-8 mb-4 w-96" onSubmit={handleRegister}>
