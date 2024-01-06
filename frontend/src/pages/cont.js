@@ -51,7 +51,7 @@ const ContactUs = () => {
               id="name"
               name="name"
               className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-              placeholder="Enter your message"
+              placeholder="Enter your name"
               value={message}
               onChange={(e) => setName(e.target.value)}
             />
@@ -79,7 +79,7 @@ const ContactUs = () => {
           type="text"
             id="message"
             name="message"
-            rows="4"
+            
            
             
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
