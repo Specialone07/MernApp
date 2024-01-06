@@ -27,7 +27,7 @@ app.use(bodyParser.json())
 
 
 app.use(cors({
-  origin:[""],
+  origin:["https://mern-app-frontend-one.vercel.app"],
   methods:["POST",'GET'],
   credentials:true
 }));
