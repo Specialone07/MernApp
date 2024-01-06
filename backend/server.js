@@ -47,23 +47,24 @@ app.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ email, username, password: hashedPassword });
         await newUser.save();
-        res.status(201).send({message:'Signed up'});
+        res.status(201).json({ message: 'Signed up' });
     } catch (e) {
         console.error(e);
         res.status(500).json({ error: 'Error in signing up' });
     }
-    });
+});
 
-//get request for registerd users
-app.get('/register', async (req, res) => {
+// Get registered users
+app.get('/users', async (req, res) => {
     try {
-      const users=await User.find()
-      res.status(201).json(users)
+        const users = await User.find();
+        res.status(200).json(users);
     } catch (e) {
         console.error(e);
-        res.status(500).json({ error: 'unable to get users' });
+        res.status(500).json({ error: 'Unable to get users' });
     }
 });
+
 //get login
 app.post('/login', async (req, res) => {
     try {
