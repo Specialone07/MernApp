@@ -30,13 +30,6 @@ mongoose.connect(DB_URI)  .then(() => {
 //middleware
 app.use(bodyParser.json())
 
-
-app.use(cors({
-  origin:['https://mern-app-frontend-one.vercel.app'],
-  methods:["POST",'GET'],
-  credentials:true
-}));
-
   app.use(function (req, res, next) {
     //Enabling CORS
     res.header("Access-Control-Allow-Origin", "*");
@@ -45,6 +38,13 @@ app.use(cors({
     Accept, x-client-key, x-client-token, x-client-secret, Authorization");
       next();
     });
+
+app.use(cors({
+  origin:['https://mern-app-frontend-one.vercel.app'],
+  methods:["POST",'GET'],
+  credentials:true
+}));
+
 
 
 //routes 
@@ -133,7 +133,10 @@ const verifyToken = (req, res, next) => {
     }
 });
 
-
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
   // ...
   
 
