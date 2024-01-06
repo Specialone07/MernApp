@@ -20,59 +20,50 @@ const DB_URI='mongodb+srv://bibekpuri34:QwxvJv50XaxHYcPl@cluster30.sva5gvn.mongo
 
 
 mongoose.connect(DB_URI)  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error.message);
-  });
+  console.log('Connected to MongoDB');
+})
+.catch((error) => {
+  console.error('Error connecting to MongoDB:', error.message);
+});
 
 
 //middleware
 app.use(bodyParser.json())
 
-  app.use(function (req, res, next) {
-    //Enabling CORS
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, 
-    Accept, x-client-key, x-client-token, x-client-secret, Authorization");
-      next();
-    });
 
 app.use(cors({
-  origin:['https://mern-app-frontend-one.vercel.app'],
+  origin:[" https://mern-app-backend-zeta.vercel.app"],
   methods:["POST",'GET'],
   credentials:true
 }));
 
 
 
+
 //routes 
-app.options('*', cors()); 
 app.post('/register', async (req, res) => {
     try {
         const { email, username, password } = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ email, username, password: hashedPassword });
         await newUser.save();
-        res.status(201).json({ message: 'Signed up' });
+        res.status(201).send({message:'Signed up'});
     } catch (e) {
         console.error(e);
         res.status(500).json({ error: 'Error in signing up' });
     }
-});
+    });
 
-// Get registered users
-app.get('/users', async (req, res) => {
+//get request for registerd users
+app.get('/register', async (req, res) => {
     try {
-        const users = await User.find();
-        res.status(200).json(users);
+      const users=await User.find()
+      res.status(201).json(users)
     } catch (e) {
         console.error(e);
-        res.status(500).json({ error: 'Unable to get users' });
+        res.status(500).json({ error: 'unable to get users' });
     }
 });
-
 //get login
 app.post('/login', async (req, res) => {
     try {
@@ -134,10 +125,7 @@ const verifyToken = (req, res, next) => {
     }
 });
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
   // ...
   
 
