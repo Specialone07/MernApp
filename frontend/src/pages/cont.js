@@ -42,19 +42,19 @@ const ContactUs = () => {
     <div className="container mx-auto mt-8 p-8">
       <h2 className="text-4xl font-bold text-center">Contact Us</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-600 text-sm font-medium mb-2">
+              <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">
             Your Name
           </label>
-          <textarea
-              type="text"
-              id="name"
-              name="name"
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-              placeholder="Enter your message"
-              value={message}
-              onChange={(e) => setName(e.target.value)}
-            />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-gray-600 text-sm font-medium mb-2">
