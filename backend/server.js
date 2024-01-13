@@ -19,8 +19,11 @@ const app =express();
 const DB_URI='mongodb+srv://bibekpuri34:QwxvJv50XaxHYcPl@cluster30.sva5gvn.mongodb.net/UserDB?retryWrites=true&w=majority'
 
 
-mongoose.connect(DB_URI)  .then(() => {
-  console.log('Connected to MongoDB');
+mongoose.connect(DB_URI) 
+ .then(() => {
+  app.listen(3001, ()=>{
+    console.log("connected to server at port no:3001")
+  })
 })
 .catch((error) => {
   console.error('Error connecting to MongoDB:', error.message);
@@ -28,47 +31,30 @@ mongoose.connect(DB_URI)  .then(() => {
 
 
 //middleware
+app.use(bodyParser.json())
 
-// Middleware
-app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
-  res.setHeader("Access-Control-Allow-Headers", "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version");
+app.use(cors())
 
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
-  next();
-});
 
-// CORS configuration
-app.use(cors({
-  origin: ["https://mern-app-frontend-one.vercel.app"],
-  methods: ["POST", 'GET', 'OPTIONS'],
-  credentials: true
-}));
 
 
 //routes 
-app.get('/',(req,res)=>{
-  res.json("hello");
-});
+
 app.post('/register', async (req, res) => {
     try {
         const { email, username, password } = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new User({ email, username, password: hashedPassword });
+        const hashedPassword = await bcrypt.hash(password, 10)
+        const newUser = new User({ email, username, password: hashedPassword })
         await newUser.save();
         res.status(201).send({message:'Signed up'});
     } catch (e) {
-        console.error(e);
-        res.status(500).json({ error: 'Error in signing up' });
+        console.error(e)
+        res.status(500).json({ error: 'Error in signing up' })
     }
-    });
+    })
+
+
 
 //get request for registerd users
 app.get('/register', async (req, res) => {
@@ -96,7 +82,6 @@ app.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Invalid password' });
         }
 
-        // Assuming SECRET_KEY is defined somewhere in your code
         const token = jwt.sign({ userId: user._id }, SECRET_KEY, { expiresIn: '1hr' });
 
         res.status(200).json({ message: "Login successful" });
@@ -140,17 +125,3 @@ const verifyToken = (req, res, next) => {
         res.status(500).json({ error: 'Error in form submission' });
     }
 });
-
-
-  // ...
-  
-
-//routes to handle submission
-// Route to handle form submission
-
-  
-  
-  
-//crud //create:post read:get  update:put and delete:delete
-
-
